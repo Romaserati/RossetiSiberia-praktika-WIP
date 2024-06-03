@@ -1,0 +1,39 @@
+﻿@model ServiceVM
+
+<div class="container">
+    <form method="post">
+        <input asp-for="Service.Name" hidden />
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">Удаление услуги</h2>
+                <hr />
+            </div>
+            @* <div asp-validation-summary="All">
+            </div> *@
+            <div class="mb-3">
+                <label asp-for="Service.Name" class="p-0">Название услуги</label>
+                <input asp-for="Service.Name" disabled class="form-control" />
+                <span asp-validation-for="Service.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Service.CategoryId" class="p-0">Категория</label>
+                <select asp-items="@Model.CategoryList" asp-for="@Model.Service.CategoryId" class="form-select">
+                    <option disabled selected>Выберите категорию</option>
+                </select>
+                <span asp-validation-for="Service.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Service.Description" class="p-0">Описание</label>
+                <input asp-for="Service.Description" disabled class="form-control" />
+                <span asp-validation-for="Service.Description" class="text-danger"></span>
+            </div>
+            <button class="btn btn-danger" type="submit">Удалить</button>
+            <a asp-controller="Categories" asp-action="Index">Назад</a>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,16 @@
+﻿@model Service
+
+<title>@Model.Name</title>
+<div class="container">
+<a class="btn btn-dark mb-3" asp-action="Index">Назад</a>
+    <p class="h6">Категория: @Model.Category.CategoryName</p>
+    <h1 class="display-6">@Model.Name</h1>
+    <div class="col-sm-1">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img style="width: 30vw; height: 30vh" src="@Model.ImageUrl"/>
+        }
+    </div>
+    <p style="font-size: 20px">@Model.Description</p>
+    <a class="btn btn-primary" href="#">Подать заявку</a>
+</div>

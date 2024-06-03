@@ -1,0 +1,38 @@
+﻿@model List<Service>
+
+@{
+    ViewData["Title"] = "Админ | Услуги";
+}
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2>Услуги</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-controller="Services" asp-action="Upsert">Добавить новую услугу</a>
+        </div>
+    </div>
+</div>
+
+<table id="tblData" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Название услуги
+            </th>
+            <th>
+                Категория
+            </th>
+            <th>
+                Описание
+            </th>
+            <th>
+
+            </th>    
+        </tr>
+    </thead>
+</table>
+
+@section Scripts {
+    <script src="~/js/services.js"></script>
+}

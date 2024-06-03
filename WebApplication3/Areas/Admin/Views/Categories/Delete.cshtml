@@ -1,0 +1,30 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "Админ | Удаление";
+}
+<div class="container">
+    <form method="post">
+        <input asp-for="CategoryName" hidden />
+        <div class="border p-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary">Удаление категории</h2>
+                <hr />
+            </div>
+            @* <div asp-validation-summary="All">
+            </div> *@
+            <div class="mb-3">
+                <label asp-for="CategoryName" class="p-0">Название категории</label>
+                <input asp-for="CategoryName" disabled class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+            <button class="btn btn-danger" type="submit">Удалить</button>
+            <a asp-controller="Categories" asp-action="Index">Назад</a>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Администратор";
+}
+<div class="text-center">
+    @if (User.IsInRole(SD.Role_Admin))
+    {
+        <h1 class="display-4">
+            Администратор
+        </h1>
+    }
+    else
+    {
+        <h1 class="display-4">
+            Сотрудник
+        </h1>
+    }
+    <a class="list-group-item list-group-item-action list-group-item-primary h4" asp-area="Admin" asp-controller="Categories" asp-action="Index">Категории</a>
+    <a class="list-group-item list-group-item-action list-group-item-primary h4" asp-area="Admin" asp-controller="Services" asp-action="Index">Услуги</a>
+    
+    @if(User.IsInRole(SD.Role_Admin)) 
+    {
+        <a class="list-group-item list-group-item-action list-group-item-primary h4" asp-controller="Users" asp-action="Index">Пользователи</a>;
+    }
+
+</div>
