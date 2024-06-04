@@ -62,7 +62,7 @@ namespace RossetiSiberiaWeb.Areas.Identity.Pages.Account.Manage
             }
 
             _logger.LogInformation("User with ID '{UserId}' has disabled 2fa.", _userManager.GetUserId(User));
-            StatusMessage = "2fa has been disabled. You can reenable 2fa when you setup an authenticator app";
+            StatusMessage = "2фа отключен. Вы можете повторно включить двухфакторную аутентификацию при настройке приложения для аутентификации";
             return RedirectToPage("./TwoFactorAuthentication");
         }
     }

@@ -69,7 +69,7 @@ namespace RossetiSiberiaWeb.Areas.Identity.Pages.Account.Manage
             /// </summary>
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Новый Email")]
             public string NewEmail { get; set; }
         }
 
@@ -125,14 +125,14 @@ namespace RossetiSiberiaWeb.Areas.Identity.Pages.Account.Manage
                     protocol: Request.Scheme);
                 await _emailSender.SendEmailAsync(
                     Input.NewEmail,
-                    "Confirm your email",
-                    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "Подтвердите свой Email",
+                    $"Пожалуйста, подтвердите свой адрес электронной почты, нажав <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>здесь</a>.");
 
-                StatusMessage = "Confirmation link to change email sent. Please check your email.";
+                StatusMessage = $"Ссылка для подтверждения изменения почты отправлена на адрес {Input.NewEmail}. Пожалуйста, проверьте свою электронную почту";
                 return RedirectToPage();
             }
 
-            StatusMessage = "Your email is unchanged.";
+            StatusMessage = "Ваш адрес электронной почты не изменился";
             return RedirectToPage();
         }
 
@@ -161,10 +161,10 @@ namespace RossetiSiberiaWeb.Areas.Identity.Pages.Account.Manage
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Подтвердите свой Email",
+                $"Пожалуйста, подтвердите свой адрес электронной почты, нажав <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>здесь</a>.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Письмо с подтверждением отправлено. Пожалуйста, проверьте свою электронную почту";
             return RedirectToPage();
         }
     }
