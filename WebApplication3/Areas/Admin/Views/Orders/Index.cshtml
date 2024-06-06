@@ -1,0 +1,60 @@
+﻿@model List<Order>
+
+<h1 class="display-4">Заказы</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                ID Заказа
+            </th>
+            <th>
+                Услуга
+            </th>
+            <th>
+                Фамилия
+            </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Отчество
+            </th>
+            <th>
+                Номер телефона
+            </th>
+            <th>
+                Email
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>
+                    @order.Id
+                </td>
+                <td>
+                    @order.Service.Name
+                </td>
+                <td>
+                    @order.Customer.LastName
+                </td>
+                <td>
+                    @order.Customer.FirstName
+                </td>
+                <td>
+                    @order.Customer.MiddleName
+                </td>
+                <td>
+                    @order.Customer.PhoneNumber
+                </td>
+                <td>
+                    @order.Customer.Email
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

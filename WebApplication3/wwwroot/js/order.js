@@ -10,14 +10,16 @@
                 url: url,
                 type: 'POST',
                 success: function (data) {
-                    /*toastr.success(data.message);*/
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Заявка подана, мы свяжемся с Вами в ближайшее время",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                    if (!data.success) {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Упс...",
+                            text: "Похоже, Вы не авторизованы!",
+                        });
+                    }
+                    else {
+                        Swal.fire("Заказ создан! Мы свяжемся с Вами в ближайшее время", "", "success");
+                    }
                 }
             });
         }
