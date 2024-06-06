@@ -1,16 +1,21 @@
 ﻿@model Service
 
 <title>@Model.Name</title>
-<div class="container">
+
+<div class="container card border-0 p-5 shadow-lg border-top border-5 rounded d-flex flex-column bd-highlight mb-3" style="width: 100vw;">
 <a class="btn btn-dark mb-3" asp-action="Index">Назад</a>
-    <p class="h6">Категория: @Model.Category.CategoryName</p>
-    <h1 class="display-6">@Model.Name</h1>
-    <div class="col-sm-1">
+    <p class="h6" style="margin-left: 10px;">Категория: @Model.Category.CategoryName</p>
+    <h1 class="display-6" style="margin-bottom: 2.5rem; margin-left: 7px;">@Model.Name</h1>
+    <div class="col-sm-1 shadow" style="width: 50vw; height: 40vh; margin-left: 7px;">
         @if (!string.IsNullOrEmpty(Model.ImageUrl))
         {
-            <img style="width: 30vw; height: 30vh" src="@Model.ImageUrl"/>
+            <img style="width: 50vw; height: 40vh; border-radius: 7px;" src="@Model.ImageUrl"/>
         }
     </div>
-    <p style="font-size: 20px">@Model.Description</p>
-    <a class="btn btn-primary" href="#">Подать заявку</a>
+    <p style="font-size: 20px; margin-top: 1rem; margin-left: 7px;">@Model.Description</p>
+    <a class="btn btn-primary" onclick=Create("/customer/order/create?serviceId=@Model.Id")>Подать заявку</a>
 </div>
+
+@section Scripts {
+    <script src="~/js/Orders.js"></script>
+}

@@ -19,12 +19,15 @@ namespace RossetiSiberia.DataAccess.Repository
 
         public ICustomerRepository Customer { get; private set; }
 
+        public IOrderRepository Order { get; private set; }
+
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
             Category = new CategoryRepository(context);
             Service = new ServiceRepository(context);
             Customer = new CustomerRepository(context);
+            Order = new OrderRepository(context);
         }
 
 

@@ -21,6 +21,7 @@ namespace RossetiSiberia.DataAccess.Repository
             this.dbSet = _context.Set<T>();
             //_context.Categories == dbSet;
             _context.Services.Include(u => u.Category).Include(u => u.CategoryId);
+            _context.Orders.Include(u => u.Service).Include(u => u.Customer);
         }
 
         public void Add(T entity)

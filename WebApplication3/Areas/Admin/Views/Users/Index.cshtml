@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Customer>
 
-<table id="tblUsersData" class="table table-bordered table-striped">
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
-@*             <th>
+            <th>
                 Логин
-            </th> *@
+            </th>
             <th>
                 Фамилия
             </th>
@@ -23,8 +23,30 @@
             </th>
         </tr>
     </thead>
+    <tbody>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>
+                    @user.UserName
+                </td>
+                <td>
+                    @user.LastName
+                </td>
+                <td>
+                    @user.FirstName
+                </td>
+                <td>
+                    @user.MiddleName
+                </td>
+                <td>
+                    @user.PhoneNumber
+                </td>
+                <td>
+                    @user.Email
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 
-@section Scripts {
-    <script src="~/js/users.js"></script>
-}

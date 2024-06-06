@@ -12,6 +12,8 @@ namespace RossetiSiberia.DataAccess.Repository.IRepository
         IServiceRepository Service { get; }
         ICustomerRepository Customer { get; }
 
+        IOrderRepository Order { get; }
+
         void Save();
     }
 }

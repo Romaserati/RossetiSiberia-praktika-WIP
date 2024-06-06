@@ -129,20 +129,30 @@ namespace RossetiSiberiaWeb.Areas.Admin.Controllers
 
                     serviceVM.Service.ImageUrl = @"\Images\Service\" + fileName;
                 }
-                else
-                {
-                    serviceVM.Service.ImageUrl = "";
-                }
 
                 if (serviceVM.Service.Id == 0)
                 {
-                    TempData["success"] = $"Услуга {serviceVM.Service.Name} успешно создана";
-                    _unitOfWork.Service.Add(serviceVM.Service);
+                    if (serviceVM.Service.ImageUrl == null)
+                    {
+                        TempData["error"] = "Вы не загрузили картинку";
+                    }
+                    else
+                    {
+                        TempData["success"] = $"Услуга {serviceVM.Service.Name} успешно создана";
+                        _unitOfWork.Service.Add(serviceVM.Service);
+                    }
                 }
                 else
                 {
-                    TempData["success"] = $"Услуга {serviceVM.Service.Name} успешно изменена";
-                    _unitOfWork.Service.Update(serviceVM.Service);
+                    if (serviceVM.Service.ImageUrl == null)
+                    {
+                        TempData["error"] = "Вы не загрузили картинку";
+                    }
+                    else
+                    {
+                        TempData["success"] = $"Услуга {serviceVM.Service.Name} успешно изменена";
+                        _unitOfWork.Service.Update(serviceVM.Service);
+                    }
                 }
                 _unitOfWork.Save();
                 return RedirectToAction("Index");
