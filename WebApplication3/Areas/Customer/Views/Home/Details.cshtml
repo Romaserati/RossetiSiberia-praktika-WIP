@@ -6,10 +6,10 @@
 <a class="btn btn-dark mb-3" asp-action="Index">Назад</a>
     <p class="h6" style="margin-left: 10px;">Категория: @Model.Category.CategoryName</p>
     <h1 class="display-6" style="margin-bottom: 2.5rem; margin-left: 7px;">@Model.Name</h1>
-    <div class="col-sm-1 shadow" style="width: 50vw; height: 40vh; margin-left: 7px;">
+    <div class="col-sm-1 shadow" style="width: 45vw; height: 40vh; margin-left: 7px;">
         @if (!string.IsNullOrEmpty(Model.ImageUrl))
         {
-            <img style="width: 50vw; height: 40vh; border-radius: 7px;" src="@Model.ImageUrl"/>
+            <img style="width: 45vw; height: 40vh; border-radius: 7px;" src="@Model.ImageUrl"/>
         }
     </div>
     <p style="font-size: 20px; margin-top: 1rem; margin-left: 7px;">@Model.Description</p>

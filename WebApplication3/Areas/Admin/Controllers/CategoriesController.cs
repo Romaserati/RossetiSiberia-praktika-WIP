@@ -34,16 +34,6 @@ namespace RossetiSiberiaWeb.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Category category)
         {
-            /*            if(category.CategoryName == )
-                        {
-                            ModelState.AddModelError("CategoryName", "Заполните это поле");
-                            return View();
-                        }*/
-            /*if (category.CategoryName == "test")
-            {
-                ModelState.AddModelError("", "Недопустимое название");
-                return View();
-            }*/
 
             if (ModelState.IsValid)
             {

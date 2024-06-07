@@ -26,6 +26,9 @@
             <th>
                 Email
             </th>
+            <th>
+                Дата заказа
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -52,6 +55,9 @@
                 </td>
                 <td>
                     @order.Customer.Email
+                </td>
+                <td>
+                    @order.CreatedOn
                 </td>
             </tr>
         }
